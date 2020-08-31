@@ -1,0 +1,9 @@
+/**app.wxss**/
+page {
+  box-sizing: border-box;
+  padding: 0;
+  --themeColors:#27AE60;
+  --fontColor:#767676;
+  font-size: 12px;
+} 
+

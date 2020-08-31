@@ -1,0 +1,8 @@
+<!--pages/log/log.wxml-->
+ <view>
+  <view class='view1'>
+    <image src='cloud://ccy-4bv1b.6363-ccy-4bv1b-1302975927/logo.png'></image>
+  </view>
+  <text>需要您的授权才能使用哦</text>
+ </view>
+ <button open-type='getUserInfo' bindgetuserinfo="bindGetUserInfo">微信登陆授权</button>

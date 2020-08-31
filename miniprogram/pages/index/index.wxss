@@ -1,0 +1,110 @@
+/**index.wxss**/
+
+page
+{
+  background-color: #FAFAFA;
+  color: var(--fontColor);
+}
+.Bookingimg
+{
+   width: 100vw;
+   height: 45vw;
+}
+
+.aa
+{
+  width: 100px;
+  height: 20px;
+}
+.van-notice-bar
+{
+  height: 55rpx !important;
+  font-size: 13px !important;
+}
+
+.goodsBox
+{
+  position: relative;
+  width: 90%;
+  margin: 10rpx auto;
+  height: 170rpx;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10rpx;
+}
+.goodsImgBox {
+  width: 160rpx;
+  height: 160rpx;
+  margin-left: 10px;
+}
+.goodsImg
+{
+  width: 100% !important;
+  object-fit: scale-down !important;
+  max-height: 160rpx!important;
+}
+
+.name
+{
+  font-size: 26rpx;
+  font-weight: bold;
+    width: 35vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.bookingPrice {
+  display: inline-block;
+  color: #e9332d;
+  font-weight: bold;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-right:35rpx;
+}
+
+.originalPrice {
+  text-align: left;
+  font-size: 24rpx;
+  /* margin-left: -2px; */
+  margin-top: 5rpx;
+  text-decoration: line-through;
+}
+
+.bookingInput {
+  display: block;
+  color: #27AE60;
+  border: 1px solid #27AE60;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 12px;
+  background-color: white;
+   margin-top: 30rpx;
+}
+
+.mark
+{
+  position: absolute;
+  top: 2px;
+  left: 0px;
+}
+
+.time
+{
+  position: absolute;
+  top: 18rpx;
+  right: 30rpx;
+  vertical-align: middle;
+}
+
+.goodsNewBox
+{
+  margin-top: 25rpx;
+}

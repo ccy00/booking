@@ -1,0 +1,15 @@
+<!--pages/booking/booking.wxml-->
+<view>
+  距离结束还有:<van-count-down millisecond time="1000000000" format="HH:mm:ss:SSS" />
+</view>
+<swiper autoplay circular indicator-dots interval='2000'> 
+  <swiper-item>
+    <image class="goodsImg" mode='aspectFit' src='http://img.173kz.com/FileUpload/PictureMobile/2015/9/17/2015917171287304.jpg' ></image>
+  </swiper-item>
+   <swiper-item>
+    <image class="goodsImg"  mode='aspectFit' src='http://img.173kz.com/FileUpload/PictureMobile/2015/9/17/2015917171303079.jpg' ></image>
+  </swiper-item>
+  <swiper-item>
+        <image mode='aspectFit' class="goodsImg" src='http://img.173kz.com/FileUpload/ProductImgMobile/2015/09/150917160621/1509171606212934.jpg' ></image>
+  </swiper-item>
+</swiper>

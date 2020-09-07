@@ -3,7 +3,9 @@ page {
   box-sizing: border-box;
   padding: 0;
   --themeColors:#27AE60;
+  --bgColor:#f1f8e9;
   --fontColor:#767676;
   font-size: 12px;
+  color: var(--fontColor);
 } 
 

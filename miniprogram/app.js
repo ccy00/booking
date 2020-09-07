@@ -18,11 +18,11 @@ App({
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
-        this.globalData.id = res.result.openid;
+        this.globalData.useId = res.result.openid;
         if (this.openIdReadyCallback) {
           this.openIdReadyCallback(res)
         }
-        console.log("用户的openid是" + this.globalData.id);
+        console.log("用户的openid是" + this.globalData.useId);
       }
 
     })
@@ -30,13 +30,11 @@ App({
 
 
   },
+
   globalData:{
- 
-    useId:"",
-    name:"",
-    avatars:""
-    
-    },
+      useId:''
+  },
+
 
     //输出函数
      log(e)

@@ -1,15 +1,94 @@
 <!--pages/booking/booking.wxml-->
-<view>
-  距离结束还有:<van-count-down millisecond time="1000000000" format="HH:mm:ss:SSS" />
+<view wx:if='{{flag}}'>
+	<view class="time">
+		<van-icon name="fire" /> <text class="timeText"> 距离结束还有:</text>
+		<van-count-down time="{{ time }}" format="DD 天 HH 时 mm 分 ss 秒" />
+	</view>
+	<swiper autoplay circular indicator-dots interval='2000'>
+		<swiper-item>
+			<image class="goodsImg" mode='aspectFit' src='{{goods.imgList[0]}}' data-src='{{goods.imgList[0]}}' bindtap="reviewImages"></image>
+		</swiper-item>
+		<swiper-item>
+			<image class="goodsImg" mode='aspectFit' src='{{goods.imgList[1]}}' data-src='{{goods.imgList[1]}}' bindtap="reviewImages"></image>
+		</swiper-item>
+
+	</swiper>
+
+	<view class="bookingBigBox">
+		<view class="numBox">
+			名额{{goods.numberOnline}}
+		</view>
+		<view class="priceBox">
+			<text class="bookingText">预定价格</text>
+			<view>
+				<text class='nowPrice'>¥{{goods.price}}</text>
+				<text class='oldPrice'>¥{{goods.oldPrice}}</text>
+			</view>
+		</view>
+		<view class="nameBox">
+			<view class="name">{{goods.name}}</view>
+			<view>摇号时间：{{goods.mytime}}</view>
+		</view>
+
+	</view>
+
+
+	<view class="goodsDetails">
+		<van-divider contentPosition="center">
+			<van-icon name="description" /> 商品详情</van-divider>
+
+		<image bindtap="reviewImages" wx:for='{{goods.imgList}}' wx:key="*this" mode="widthFix" src="{{item}}  " data-src="{{item}}" lazy-load></image>
+
+
+	</view>
+
+
+	<view class="rulesBox">
+		<view>
+			<van-divider contentPosition="center">
+				<van-icon name="smile-comment-o" /> 预定规则</van-divider>
+		</view>
+
+		<view class="rules">1、本商品为电子券，用户成功购买后可将享电子券转赠给好友或领取自用。该电子券存在不同面值，用户购买部分面值的电子券可获得相应返利，返利具体金额以活动页面信息为准。购卡成功后，返利自
+			动绑定购卡人的账户，即在购卡人账户中自动充值对应返利金额;转赠部分仅限于本金，不包利。</view>
+		<view class="rules">2、如您赠出的电子券24小时未被领取，分享链接或图片会自动失效。</view>
+		<view class="rules">3、电子券的购买所获金额(本金)自购买之日起三年内有效，返利自购买之日起30天有效，逾期将被冻结。具体到期时间
+			可进入账户“xxxxxx”查看</view>
+		<view class="rules"> 4、每期可获得返利的电子券数量有限，先到先得，且同一用
+			户每月可购买的电子券数量存在上限，以页面提示为准</view>
+		<view class="rules">5、购买电子券后，用户可申请开具增值税普通发票，通过
+			xxxx”找到购买享淘卡的订单进行申请。</view>
+		<view class="rules">6、用户在电子券购买页面一次性完成下单付款可以获得返
+			利，如您有特殊原因导致未能及时付款，可以在待付款订单列
+			表继续完成付款并获得返利。请不要在待付款订单未关闭的情
+			况下重复提交订单，否则将无法获得返利。</view>
+
+
+	</view>
+
+	<view class="footerBox">
+		<button open-type='share' id="shareButton">
+			<image class="shareIcon" src="cloud://ccy-4bv1b.6363-ccy-4bv1b-1302975927/user-shared-fill.png"></image>
+			分享
+		</button>
+
+
+
+		<view  wx:if='{{goods.isBooking}}' style="text-align: right; flex:1;">
+				<button id="hasBeenSchedul" >
+			  已预定
+			</button>
+		</view>
+
+		<view wx:else style="text-align:right; flex:1;">
+			<button id="booking" bindtap="booking">
+				立即预定
+			</button>
+
+		</view>
+	</view>
+
 </view>
-<swiper autoplay circular indicator-dots interval='2000'> 
-  <swiper-item>
-    <image class="goodsImg" mode='aspectFit' src='http://img.173kz.com/FileUpload/PictureMobile/2015/9/17/2015917171287304.jpg' ></image>
-  </swiper-item>
-   <swiper-item>
-    <image class="goodsImg"  mode='aspectFit' src='http://img.173kz.com/FileUpload/PictureMobile/2015/9/17/2015917171303079.jpg' ></image>
-  </swiper-item>
-  <swiper-item>
-        <image mode='aspectFit' class="goodsImg" src='http://img.173kz.com/FileUpload/ProductImgMobile/2015/09/150917160621/1509171606212934.jpg' ></image>
-  </swiper-item>
-</swiper>
+
+
+<van-empty wx:else image="error" description="活动结束啦，去看看其他活动吧！" />

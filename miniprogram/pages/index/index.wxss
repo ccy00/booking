@@ -75,7 +75,7 @@ page
   text-decoration: line-through;
 }
 
-.bookingInput {
+.bookingInput,.hasBeenSchedul {
   display: block;
   color: #27AE60;
   border: 1px solid #27AE60;
@@ -87,6 +87,11 @@ page
   font-size: 12px;
   background-color: white;
    margin-top: 30rpx;
+}
+.hasBeenSchedul
+{
+  color: #bdbdbd;
+  border: 1px solid #bdbdbd;
 }
 
 .mark

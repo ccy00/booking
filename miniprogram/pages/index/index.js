@@ -2,18 +2,34 @@
 const app = getApp()
 const db = wx.cloud.database();
 let goodsC=db.collection('goods');
+let useC=db.collection('use');
+let that=this;
 Page({
   data: {
-      goodsList:[]
+      goodsList:[],
+     
   },
 
   onLoad: function() {
+    this.getBookingData()
+    
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getBookingData()
+  },
+
+  //拿取预定列表数据
+  getBookingData()
+  {
     goodsC.where({
       lotteryFlag: false,
     })
     .get().then(res => {
 
-      app.log(res.data)
+      this.isBooking(res.data);
       this.myTime(res.data)
       this.setData({
         goodsList:res.data
@@ -23,8 +39,25 @@ Page({
     })
     
   },
+   //处理是否预定  利用goodsList中的bookingPepid
+   isBooking(list)
+   {
+     console.log(list)
+     let id= app.globalData.useId;
+  
+      for (let i = 0; i < list.length; i++) {
+          if(list[i].bookingPepId.indexOf(id)===-1)
+          {
+            list[i].isBooking=false
+          }
+          else
+          {
+            list[i].isBooking=true
+          }
+      }
 
-
+    
+   },
 
   //图片浏览函数
   reviewImages:(e)=>{
@@ -60,7 +93,7 @@ Page({
     // })
   },
 
-    //时间处理函数
+    //时间处理函数  添加mytime
     myTime:(list)=>{
      
       for (let i = 0; i < list.length; i++) {
@@ -70,12 +103,21 @@ Page({
 
         ss=data[1]+'月'+data[2]+'日'+time
         
-        list[i].time=ss
+        list[i].mytime=ss
         
       }
 
       
     },
 
+    //跳转函数
+    toBooking(e){
+      let i= Number(e.currentTarget.dataset.index);
+     let  goodsJson= JSON.stringify(this.data.goodsList[i]);
+     console.log(this.data.goodsList[i].isBooking)
+      wx.navigateTo({
+        url:'../booking/booking?goodsJson='+goodsJson
+      })
+    }
 
 })

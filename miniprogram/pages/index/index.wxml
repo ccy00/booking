@@ -6,14 +6,14 @@
 />
 <image  lazy-load class="Bookingimg" data-src='cloud://ccy-4bv1b.6363-ccy-4bv1b-1302975927/111.jpg' bindtap="reviewImages"  src="cloud://ccy-4bv1b.6363-ccy-4bv1b-1302975927/111.jpg"></image>
 
-    <view class="goodsBox" wx:for="{{goodsList}}"  wx:key="*this" wx:for-index="idx" wx:for-item="goods">
+    <view class="goodsBox" wx:for="{{goodsList}}"  wx:key="*this" wx:for-index="i" wx:for-item="goods">
          <view class="goodsImgBox">
             <image class="goodsImg" src="{{goods.img}}" />
         </view>
         <view class="goodsNewBox"> 
            <view class="time">
               <van-icon name="clock"  color="#27AE60"/>
-                摇号时间：{{goods.time}}
+                摇号时间：{{goods.mytime}}
               </view>
           <view class="name">{{goods.name}}</view>
              <view>
@@ -22,9 +22,13 @@
              </view>
              <van-tag type="danger"  mark  class='mark'  color="#27AE60">名额:{{goods.numberOnline}}</van-tag>
            </view>
-         <view class="bookingInputBox">
-            <button class="bookingInput"   >立即预定</button>
+        <view class="bookingInputBox" wx:if='{{goods.isBooking}}' >
+            <button bindtap="toBooking"  data-index='{{i}}'  class="hasBeenSchedul">已预定</button>
           </view>
+         <view class="bookingInputBox"  wx:else>
+            <button bindtap="toBooking"  data-index='{{i}}'  class="bookingInput">立即预定</button>
+          </view>
+
     </view>
 
     <!-- <button bindtap="addNew">jkhj</button> -->

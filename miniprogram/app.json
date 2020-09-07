@@ -1,13 +1,16 @@
 {
 
   "usingComponents":{
-    "van-button":"/miniprogram_npm/vant-weapp/button/index",
-    "van-toast": "/miniprogram_npm/vant-weapp/toast/index",
-    "van-notice-bar": "/miniprogram_npm/vant-weapp/notice-bar/index",
-    "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
-    "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
-    "van-nav-bar": "/miniprogram_npm/vant-weapp/nav-bar/index",
-    "van-count-down": "/miniprogram_npm/vant-weapp/count-down/index"
+    "van-button":"/miniprogram_npm/dist/button/index",
+    "van-toast": "/miniprogram_npm/dist/toast/index",
+    "van-notice-bar": "/miniprogram_npm/dist/notice-bar/index",
+    "van-tag": "/miniprogram_npm/dist/tag/index",
+    "van-icon": "/miniprogram_npm/dist/icon/index",
+    "van-nav-bar": "/miniprogram_npm/dist/nav-bar/index",
+    "van-count-down": "/miniprogram_npm/dist/count-down/index",
+    "van-divider": "/miniprogram_npm/dist/divider/index",
+    "van-empty": "/miniprogram_npm/dist/empty/index"
+
     
    },
   "pages": [
